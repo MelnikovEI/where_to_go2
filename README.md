@@ -16,39 +16,32 @@ python --version
 ```sh
 git clone https://github.com/MelnikovEI/where_to_go
 ```
+Код из репозитория должен появиться в папке из которой запущена команда.
 
 Перейдите в каталог проекта:
 ```sh
 cd where_to_go
 ```
 
-В каталоге проекта создайте виртуальное окружение:
+### В каталоге проекта создайте виртуальное окружение:
 ```sh
 python -m venv venv
 ```
+
 Активируйте его. На разных операционных системах это делается разными командами:
 
 - Windows: `.\venv\Scripts\activate`
 - MacOS/Linux: `source venv/bin/activate`
 
+Результат: в командной строке вначале будет имя окружения: (venv) PS С:\...>
+ 
 Установите зависимости в виртуальное окружение:
 ```sh
 pip install -r requirements.txt
 ```
+При успешной установке будет сообщение об окончании установки библиотек.
 
-Создайте базу данных SQLite
-
-```sh
-python manage.py migrate
-```
-
-Запустите разработческий сервер
-
-```
-python manage.py runserver
-```
-
-## Переменные окружения
+### Переменные окружения
 
 Часть настроек проекта берётся из переменных окружения. Чтобы их определить, создайте файл `.env` рядом с `manage.py` и запишите туда данные в таком формате: `ПЕРЕМЕННАЯ=значение`.
 
@@ -58,15 +51,27 @@ python manage.py runserver
 - `DATABASE_FILEPATH` — полный путь к файлу базы данных SQLite, например: `/home/user/schoolbase.sqlite3`
 - `ALLOWED_HOSTS` — см [документацию Django](https://docs.djangoproject.com/en/4.2/ref/settings/#allowed-hosts)
 
+### Создайте базу данных SQLite
+
+```sh
+python manage.py migrate
+```
+В случае успеха в папке проекта появится файл "bd.sqlite3"
+### Запустите разработческий сервер
+
+```
+python manage.py runserver
+```
+При успешном запуске появится ссылка по которой можно перейти в браузер и увидеть страницу проекта.
 ## Добавить места
 Для добавления новых мест можно воспользоваться [страницей администратора](https://melwheretogo.pythonanywhere.com/admin/)
 или же сложить json файлы вида\
 {\
 &emsp;"title": "Водопад Радужный",\
 &emsp;"imgs": [\
-&emsp;&emsp;"https://raw.githubusercontent.com/devmanorg/where-to-go-places/master/media/7252a5cbb831eec01d98f3c234f2dfc5.jpg",
-&emsp;&emsp;"https://raw.githubusercontent.com/devmanorg/where-to-go-places/master/media/c0191d876a75c05d72d9845251758b34.jpg",
-&emsp;&emsp;"https://raw.githubusercontent.com/devmanorg/where-to-go-places/master/media/3daa4472d29bc5e3c82a62edb7ea6cfe.jpg",
+&emsp;&emsp;"https://raw.g...fc5.jpg",
+&emsp;&emsp;"https://raw.g...b34.jpg",
+&emsp;&emsp;"https://raw.g...cfe.jpg",
     ],\
 &emsp;"description_short": "Центральная Россия — край водопадов! Не верите? А зря.",\
 &emsp;"description_long": "Вас привлекает ром... отпуска.",\
@@ -79,6 +84,7 @@ python manage.py runserver
 ```
 python3 manage.py add_places /home/melwheretogo/new_places
 ```
+В результате в базе данных проекта и на карте появятся новые точки из файлов.
 ## Цели проекта
 
 Код написан в учебных целях — для курса по Python и веб-разработке на сайте [Devman](https://dvmn.org).
