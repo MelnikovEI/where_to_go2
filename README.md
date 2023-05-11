@@ -69,25 +69,31 @@ python manage.py createsuperuser
 Перейти к странице администрирования: добавить к ссылке "/admin".
 ## Добавить места
 Для добавления новых мест можно воспользоваться [страницей администратора](https://melwheretogo.pythonanywhere.com/admin/)
-или же сложить json файлы вида\
-{\
-&emsp;"title": "Водопад Радужный",\
-&emsp;"imgs": [\
-&emsp;&emsp;"https://raw.g...fc5.jpg",
-&emsp;&emsp;"https://raw.g...b34.jpg",
-&emsp;&emsp;"https://raw.g...cfe.jpg",
-    ],\
-&emsp;"description_short": "Центральная Россия — край водопадов! Не верите? А зря.",\
-&emsp;"description_long": "Вас привлекает ром... отпуска.",\
-&emsp;"coordinates": {
+или же сложить json файлы вида:
+```
+{"title": "Водопад Радужный",
+    "imgs": [
+        "https://raw.g...fc5.jpg",
+        "https://raw.g...b34.jpg",
+        "https://raw.g...cfe.jpg",
+    ],
+    "description_short": "Центральная Россия — край водопадов! Не верите? А зря.",
+    "description_long": "Вас привлекает ром... отпуска.",
+    "coordinates": {
         "lng": "36.940988",
         "lat": "55.20653999999999"
-    }\
-}\
+    }
+}
+```
 в одну папку и запустить команду 'add_places', указав аргументом путь к ней:
 ```
 python3 manage.py add_places /home/melwheretogo/new_places
 ```
+Также можно указать url ссылку на json файл:
+```
+python3 manage.py load_place https://raw.gi...A1.json
+```
+
 В результате в базе данных проекта и на карте появятся новые точки из файлов.
 ## Цели проекта
 
