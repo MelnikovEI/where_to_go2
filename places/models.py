@@ -9,11 +9,11 @@ class Place(models.Model):
     lng = models.FloatField()
     lat = models.FloatField()
 
-    def __str__(self):
-        return self.title
-
     class Meta:
         unique_together = ['title', 'lng', 'lat']
+
+    def __str__(self):
+        return self.title
 
 
 class Image(models.Model):
