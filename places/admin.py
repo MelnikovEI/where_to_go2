@@ -17,7 +17,7 @@ class ImageInline(SortableInlineAdminMixin, admin.StackedInline):
         )
         )
 
-    readonly_fields = ["img_preview"]
+    readonly_fields = ['img_preview']
     fields = ('img', 'img_preview', 'order')
 
 
@@ -26,7 +26,7 @@ class PlaceAdmin(admin.ModelAdmin):
     inlines = [
         ImageInline,
     ]
-    search_fields = ["title"]
+    search_fields = ['title']
 
 
 @admin.register(Image)

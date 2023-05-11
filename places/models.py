@@ -13,7 +13,7 @@ class Place(models.Model):
         return self.title
 
     class Meta:
-        unique_together = ["title", "lng", "lat"]
+        unique_together = ['title', 'lng', 'lat']
 
 
 class Image(models.Model):
