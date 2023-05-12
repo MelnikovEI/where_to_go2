@@ -6,14 +6,9 @@ from places.models import Place
 
 
 def index(request):
-    data = {
-        'points': {
-            'type': 'FeatureCollection',
-            'features': []
-        }
-    }
+    features = []
     for place in Place.objects.all():
-        data['points']['features'].append(
+        features.append(
             {
                 'type': 'Feature',
                 'geometry': {
@@ -27,7 +22,13 @@ def index(request):
                 }
             }
         )
-    return render(request, 'index.html', context=data)
+    payload = {
+        'points': {
+            'type': 'FeatureCollection',
+            'features': features
+        }
+    }
+    return render(request, 'index.html', context=payload)
 
 
 def get_place_details(request, place_id):

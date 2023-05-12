@@ -9,17 +9,17 @@ class ImageInline(SortableInlineAdminMixin, admin.StackedInline):
     model = Image
 
     @staticmethod
-    def img_preview(obj):
+    def preview_img(image: Image):
         return format_html(
             '<img src="{url}" width="{width}" height={height} />'.format(
-                url=obj.img.url,
-                width=obj.img.width/(obj.img.height/200),
+                url=image.img.url,
+                width=image.img.width / (image.img.height / 200),
                 height=200,
             )
         )
 
-    readonly_fields = ['img_preview']
-    fields = ('img', 'img_preview', 'order')
+    readonly_fields = ['preview_img']
+    fields = ('img', 'preview_img', 'order')
 
 
 @admin.register(Place)
