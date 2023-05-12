@@ -10,11 +10,12 @@ class ImageInline(SortableInlineAdminMixin, admin.StackedInline):
 
     @staticmethod
     def img_preview(obj):
-        return format_html('<img src="{url}" width="{width}" height={height} />'.format(
-            url=obj.img.url,
-            width=obj.img.width/(obj.img.height/200),
-            height=200,
-        )
+        return format_html(
+            '<img src="{url}" width="{width}" height={height} />'.format(
+                url=obj.img.url,
+                width=obj.img.width/(obj.img.height/200),
+                height=200,
+            )
         )
 
     readonly_fields = ['img_preview']
