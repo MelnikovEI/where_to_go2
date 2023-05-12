@@ -6,10 +6,11 @@ from places.models import Place
 
 
 def index(request):
-    data = {'points': {
-        'type': 'FeatureCollection',
-        'features': []
-    }
+    data = {
+        'points': {
+            'type': 'FeatureCollection',
+            'features': []
+        }
     }
     for place in Place.objects.all():
         data['points']['features'].append(

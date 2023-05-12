@@ -186,5 +186,7 @@ cython_debug/
 # *.ipr
 
 .media/
+.assets/
 
 .replit
+/media/
