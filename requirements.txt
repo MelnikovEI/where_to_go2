@@ -4,4 +4,3 @@ django-admin-sortable2~=1.0.4
 Pillow~=9.5.0
 environs~=9.5.0
 requests~=2.30.0
-tqdm~=4.65.0
