@@ -11,9 +11,8 @@ class ImageInline(SortableInlineAdminMixin, admin.StackedInline):
     @staticmethod
     def preview_img(image: Image):
         return format_html(
-            '<img src="{}" width="{}" height={} />',
+            '<img src="{}" style="max-height: {}px;" />',
             image.img.url,
-            image.img.width / (image.img.height / 200),
             200,
         )
 
